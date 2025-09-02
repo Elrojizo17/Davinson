@@ -1,0 +1,368 @@
+:root{
+--primary: rgb(220, 38, 38);
+--accent: rgb(16, 185, 129);
+--bg: rgb(249, 250, 251);
+--surface: rgba(255, 255, 255, 0.699);
+--text: rgb(17,24,39);
+--muted: rgb(85, 90, 99);
+
+--space-1: .5rem;
+--space-2: .75rem;
+--space-3: 1rem;
+--radius: 12px;
+--shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+
+/* tipografía fluida */
+html { font-size: clamp(16px, 1.6vw, 18px); }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background-image: url("gradient-1761190.jpg");
+  background-size: cover;      /* se ajusta al tamaño de la pantalla */
+  background-position: center; /* centrada */
+  background-repeat: no-repeat;/* no se repite */
+  background-attachment: fixed; /* 👈 hace que el fondo se quede fijo aunque bajes */
+}
+
+.site-footer {
+    background: linear-gradient(180deg, #f5f5f5, #e0e0e0); /* gris claro → gris medio */
+    color: #333;
+}
+
+
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between; /* separa izquierda y derecha */
+    align-items: center;
+    padding: 20px;
+}
+
+header .left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 370px; /* espacio entre avatar y nombre */
+}
+
+header .avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%; /* degradado ejemplo */
+}
+
+header .right {
+    display: flex;
+    gap: 20px;  /* espacio entre cada item */
+    font-size: 0.95rem;
+    color: #333;
+    margin-right: 250px; 
+}
+
+.headline h1 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem); 
+    margin: 0 0 .25rem; 
+    letter-spacing: .2px;
+
+}
+.headline .role { 
+    margin: 0 0 .5rem; color: var(--muted); 
+    font-weight: 500; 
+}
+    
+.headline .contact {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: .75rem 1.25rem; 
+    padding: 0; 
+    margin: .5rem 0 0; 
+    list-style: none; 
+    color: var(--muted);
+}
+
+.headline .contact a { 
+    color: inherit; 
+    text-decoration: none; 
+    border-bottom: 1px dashed transparent; 
+}
+
+.headline .contact a:hover { 
+    color: var(--text); 
+    border-color: var(--line); 
+}
+
+/* contenedor centrado */
+.container { 
+    width: min(1110px, 92%); 
+    margin-inline: auto; 
+}
+
+
+
+/* ===== DROPDOWN ===== */
+.dropdown {
+    position: relative;
+    width: 180px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* el "Perfil" visible */
+.dropdown-selected {
+    padding: var(--space-1) 0;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-selected:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* lista oculta */
+.dropdown-list {
+    list-style: none;
+    margin: var(--space-1) 0 0;
+    padding: 0;
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0,0,0,0.06);
+    display: none; /* oculto por defecto */
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+/* items de la lista */
+.dropdown-list li {
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.dropdown-list li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-list a {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    color: var(--text);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    border-radius: calc(var(--radius) - 4px);
+}
+
+.dropdown-list a:hover {
+    background: rgba(16,185,129,0.08); /* usa el accent translúcido */
+    color: var(--primary);
+}
+
+
+
+
+
+/* HEADER */
+
+
+/* */
+#site-nav .nav-list { 
+    display:flex; 
+    gap: 1rem; 
+    list-style:none; 
+    margin:0; 
+    padding:0; 
+}
+
+#site-nav a { 
+    text-decoration:none; 
+    color: var(--text); 
+    font-weight:600; 
+}
+
+#site-nav a:hover { 
+    color: var(--primary); 
+}
+
+
+/* GRID CATEGORIES */
+.grid { 
+    display: grid; 
+    gap: var(--space-); 
+}
+
+.grid--categories { 
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+}
+
+.category { 
+    background: var(--surface); 
+    border-radius: var(--radius); 
+    overflow: hidden; box-shadow: var(--shadow); 
+    text-align:center; 
+}
+
+.category img { 
+    width:100%; 
+    height:140px; 
+    object-fit:cover; 
+    display:block; 
+}
+
+.perfil {  
+    gap: var(--space-); 
+}
+
+
+
+/* GRID CARDS */
+
+.grid--cards { 
+    grid-template-columns: 
+    repeat(auto-fit, 
+    minmax(260px, 1fr)); 
+}
+
+.card { 
+    background: var(--surface); 
+    display: grid;
+    border-radius: var(--radius); 
+    overflow:hidden; 
+    box-shadow: var(--shadow); 
+    display:grid; 
+    grid-template-rows: auto 5fr auto; 
+}
+
+.card img {
+    max-width: 150px;   /* tamaño del logo */
+    max-height: 120px;  /* controla altura */
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Contenedor para la imagen */
+.card .card__image {
+    height: 140px;             /* altura fija igual para todas las cards */
+    display: flex;
+    align-items: center;       /* centra vertical */
+    justify-content: center;   /* centra horizontal */
+    padding: 10px;
+}
+
+
+
+
+.perfil__images {
+    display: flex;          /* muestra las imágenes en fila */
+    gap: .5rem;             /* espacio entre imágenes */
+    padding: .75rem;
+    justify-content: space-around;
+    flex-wrap: wrap;        /* baja a otra línea si no caben */
+}
+
+.perfil__images img {
+    width: 70px;            /* tamaño de las imágenes */
+    height: 70px;
+    object-fit: cover;      /* recorta para que no se deformen */
+    border-radius: 8px; 
+    padding: .2rem .5rem;
+    display: block;
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;    /* bordes redondeados */
+}
+
+
+.perfil__images .icon-link {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px; /* espacio para pseudo-underline */
+}
+
+
+/* hover visual para indicar clicabilidad */
+.perfil__images .icon-link:hover img {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    opacity: 0.98;
+}
+
+/* “subrayado” visual (porque las imágenes normalmente no se subrayan) */
+.perfil__images .icon-link::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background:  var(--primary); /* usa tu color accent */
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity .12s, transform .12s;
+}
+
+.perfil__images .icon-link:hover::after{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.card__body { padding: .9rem; }
+
+.card__title { margin: 0 0 .35rem 0; }
+
+.card__footer { 
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between; 
+    padding: .75rem; 
+    border-top: 1px solid rgba(0,0,0,0.04); 
+}
+
+
+
+/* badges and prices */
+.badge { 
+    padding: .2rem .5rem; 
+    border-radius: 999px; 
+    background: rgba(0,0,0,0.06); 
+    font-size: .85rem; 
+    margin-top: auto;
+}
+.badge--accent { 
+    background: rgba(16,185,129,0.14); 
+    color: rgb(2,90,68); 
+}
+.price { font-weight: 800; }
+
+
+/* FOOTER */
+.site-footer { 
+    padding: 2.25rem 0; 
+    background: linear-gradient(circle at center, #4e4d4d, #999c9c);
+    background-attachment: fixed;
+    justify-content: center;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* RESPONSIVE: ajustar layout en pantallas grandes */
+@media (min-width: 768px) {
+.hero__content { text-align: left; }
+.site-header { padding: 1.25rem 0; }
+.grid--cards { gap: 1.25rem; }
+}
+
+@media (min-width: 1024px) {
+.hero__content { display:flex; align-items:center; gap: 2rem; }
+.grid--cards { grid-template-columns: repeat(3, 1fr); }
+}  
